@@ -1,0 +1,13 @@
+# Site settings
+title: Nick's blog
+email: nick@nickwhiteley.com
+description: > # this means to ignore newlines until "baseurl:"
+  Nick writes database applications and Node.js.  
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.nickwhiteley.com" # the base hostname & protocol for your site
+twitter_username: nick_whiteley
+github_username:  nickwhiteley
+
+# Build settings
+markdown: kramdown
+# highlighter: rouge
