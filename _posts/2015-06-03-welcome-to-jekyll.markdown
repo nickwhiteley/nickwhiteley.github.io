@@ -17,31 +17,31 @@ The video tag can display them on screen.
 
 The canvas tag can draw an image based on another tag.
 
-Bringit all together and this is what you've got:
+Bring it all together and this is what you've got:
 
 {% highlight javascript %}
-    function previewFile() {
-        var thumbVidSrc = document.getElementById('thumbVidSrc');
-        var thumbVid = document.getElementById('thumbVid');
+function previewFile() {
+    var thumbVidSrc = document.getElementById('thumbVidSrc');
+    var thumbVid = document.getElementById('thumbVid');
 
-        var thumbVidCanvas = document.getElementById('thumbVidCanvas');
-        var file    = document.getElementById('videoFile').files[0];
-        var reader  = new FileReader();
+    var thumbVidCanvas = document.getElementById('thumbVidCanvas');
+    var file    = document.getElementById('videoFile').files[0];
+    var reader  = new FileReader();
 
-        reader.onloadend = function () {
-            thumbVid.src = reader.result;
-        };
-        thumbVid.oncanplay = function () {
-            thumbVidCanvas.getContext('2d').drawImage(thumbVid, 0, 0, thumbVid.width, thumbVid.height);
-        };
+    reader.onloadend = function () {
+        thumbVid.src = reader.result;
+    };
+    thumbVid.oncanplay = function () {
+        thumbVidCanvas.getContext('2d').drawImage(thumbVid, 0, 0, thumbVid.width, thumbVid.height);
+    };
 
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-            thumbVid.src = "";
-        }
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        thumbVid.src = "";
     }
-    document.getElementById('videoFile').onchange = previewFile;
+}
+document.getElementById('videoFile').onchange = previewFile;
 {% endhighlight %}
 
 {% highlight html %}
